@@ -4,14 +4,14 @@ const Navleft = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <aside className="min-h-screen inline-flex flex-col justify-between bg-zinc-800 px-4 py-6 text-white font-medium">
+    <aside className="min-h-screen inline-flex flex-col justify-between bg-[#1e1f20] px-4 py-6 text-white font-medium">
       <div className="flex flex-col gap-8">
         <i
           onClick={() => setOpen(!open)}
           className="fa fa-bars text-xl mb-10 cursor-pointer pl-4"
           aria-hidden="true"
         ></i>
-        <div className="flex gap-4 rounded-full bg-zinc-900 justify-center items-center py-3 px-4 w-fit cursor-pointer">
+        <div className={`flex gap-4 rounded-full bg-[#131314] justify-center items-center p-4 w-fit cursor-pointer`}>
           <i className="fa fa-plus" aria-hidden="true"></i>
           {open ? <p>New Chat</p> : null}
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Navleft from "./components/Navleft";
-import Chat from "./Chat/Chat";
+import Chat from "./chats/Chat";
 
 const App = () => {
   return (
