@@ -1,27 +1,42 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import MainContext from "../context/MainContext";
+import { Tooltip } from "@nextui-org/react";
 
 const Navleft = () => {
   const [open, setOpen] = useState(false);
+  const { history } = useContext(MainContext);
 
   return (
-    <aside className="min-h-screen inline-flex flex-col justify-between bg-[#1e1f20] px-4 py-6 text-white font-medium">
+    <aside
+      className={`${
+        open && "w-[16em]"
+      } min-h-screen inline-flex flex-col justify-between bg-[#1e1f20] px-4 py-6 text-white font-medium`}
+    >
       <div className="flex flex-col gap-8">
         <i
           onClick={() => setOpen(!open)}
           className="fa fa-bars text-xl mb-10 cursor-pointer pl-4"
           aria-hidden="true"
         ></i>
-        <div className={`flex gap-4 rounded-full bg-[#131314] justify-center items-center p-4 w-fit cursor-pointer`}>
+        <div
+          className="flex gap-4 rounded-full bg-[#131314] justify-center items-center p-4 w-fit cursor-pointer"
+        >
           <i className="fa fa-plus" aria-hidden="true"></i>
           {open ? <p>New Chat</p> : null}
         </div>
         {open ? (
           <div className="flex flex-col gap-2">
             <p className="pl-4">Recent</p>
-            <div className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full">
-              <i className="fa fa-comment-o" aria-hidden="true"></i>
-              <p>Welcome back Bard!</p>
-            </div>
+            {history.map((item, i) => (
+              <Tooltip key={i} content={item} className="max-w-[16em] break-all" placement="right">
+                <div
+                  className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full"
+                >
+                  <i className="fa fa-comment-o" aria-hidden="true"></i>
+                  <p className={`${item.length > 20 && "truncate"}`}>{item}</p>
+                </div>
+              </Tooltip>
+            ))}
           </div>
         ) : null}
       </div>

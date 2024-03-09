@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+ul > li{
+  list-style: inside;
+}
+
+pre{
+  font-size: 0.8em !important;
+  background-color: #262627;
+  padding: 1em;
+  border-radius: 1em;
+  line-height: 1.5em;
+}

@@ -45,7 +45,7 @@ async function runChat(prop) {
 
   const result = await chat.sendMessage(prop);
   const response = result.response;
-  console.log(response.text());
+  return response.text();
 }
 
 export default runChat;

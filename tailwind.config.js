@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const {nextui} = require("@nextui-org/react");
+const { nextui } = require("@nextui-org/react");
 export default {
   content: [
     "./index.html",
@@ -7,7 +7,21 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        gemini: {
+          "0%" : { 
+            backgroundPosition: "-100em 0px" 
+          },
+          "100%": { 
+            backgroundPosition: "100em 0px"
+           },
+        },
+      },
+      animation: {
+        gemini: "gemini 10s infinite",
+      },
+    },
   },
   darkMode: "class",
   plugins: [nextui()],
