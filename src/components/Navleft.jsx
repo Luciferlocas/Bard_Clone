@@ -4,7 +4,7 @@ import { Tooltip } from "@nextui-org/react";
 
 const Navleft = () => {
   const [open, setOpen] = useState(false);
-  const { history } = useContext(MainContext);
+  const { history, newChat } = useContext(MainContext);
 
   return (
     <aside
@@ -18,7 +18,7 @@ const Navleft = () => {
           className="fa fa-bars text-xl mb-10 cursor-pointer pl-4"
           aria-hidden="true"
         ></i>
-        <div
+        <div onClick={newChat}
           className="flex gap-4 rounded-full bg-[#131314] justify-center items-center p-4 w-fit cursor-pointer"
         >
           <i className="fa fa-plus" aria-hidden="true"></i>
@@ -28,12 +28,12 @@ const Navleft = () => {
           <div className="flex flex-col gap-2">
             <p className="pl-4">Recent</p>
             {history.map((item, i) => (
-              <Tooltip key={i} content={item} className="max-w-[16em] break-all" placement="right">
+              <Tooltip key={i} content={item.prompt} className="max-w-[16em] break-all" placement="right">
                 <div
                   className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full"
                 >
                   <i className="fa fa-comment-o" aria-hidden="true"></i>
-                  <p className={`${item.length > 15 && "truncate"}`}>{item}</p>
+                  <p className={`${item.prompt.length > 15 && "truncate"}`}>{item.prompt}</p>
                 </div>
               </Tooltip>
             ))}
@@ -41,15 +41,15 @@ const Navleft = () => {
         ) : null}
       </div>
       <div>
-        <div className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full">
+        <a href="https://gemini.google.com/faq" target="blank" className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full">
           <i className="fa fa-question-circle" aria-hidden="true"></i>
-          {open ? <p>Help</p> : null}
-        </div>
-        <div className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full">
+          {open ? <p>FAQ</p> : null}
+        </a>
+        <div className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full cursor-pointer">
           <i className="fa fa-history" aria-hidden="true"></i>
           {open ? <p>Activity</p> : null}
         </div>
-        <div className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full">
+        <div className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full cursor-pointer">
           <i className="fa fa-cog" aria-hidden="true"></i>
           {open ? <p>Settings</p> : null}
         </div>

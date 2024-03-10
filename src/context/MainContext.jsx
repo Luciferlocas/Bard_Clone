@@ -5,7 +5,6 @@ const MainContext = createContext();
 
 export const MainContextProvider = ({ children }) => {
   const [hide, setHide] = useState(false);
-  const [res, setRes] = useState([]);
   const [prompt, setPrompt] = useState("");
   const [recent, setRecent] = useState([]);
   const [history, setHistory] = useState([]);
@@ -13,16 +12,27 @@ export const MainContextProvider = ({ children }) => {
 
   const send = async () => {
     setDisabled(true);
-    setRecent((prevRecent) => [...prevRecent, { prompt, loading: true }]);
-    setHistory((prevHistory) => [...prevHistory, prompt]);
+    setRecent((prevRecent) => [
+      ...prevRecent,
+      { prompt, loading: true, res: null },
+    ]);
+    setHistory((prevHistory) => [...prevHistory, { prompt, res: null }]);
     setHistory((his) => [...his].reverse());
     setHide(true);
     try {
       const response = await runChat(prompt);
-      setRes((prevRes) => [...prevRes, response]);
       setRecent((prevRecent) =>
         prevRecent.map((item) =>
-          item.prompt === prompt ? { ...item, loading: false } : item
+          item.prompt === prompt
+            ? { ...item, loading: false, res: response }
+            : item
+        )
+      );
+      setHistory((prevHistory) =>
+        prevHistory.map((item) =>
+          item.prompt === prompt
+            ? { ...item, res: response }
+            : item
         )
       );
     } catch (error) {
@@ -32,9 +42,22 @@ export const MainContextProvider = ({ children }) => {
     }
   };
 
+  const newChat = () => {
+    setHide(false);
+  };
+
   return (
     <MainContext.Provider
-      value={{ hide, prompt, res, send, setPrompt, recent, history, disabled }}
+      value={{
+        hide,
+        prompt,
+        send,
+        setPrompt,
+        recent,
+        history,
+        disabled,
+        newChat,
+      }}
     >
       {children}
     </MainContext.Provider>

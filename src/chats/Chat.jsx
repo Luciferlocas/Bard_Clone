@@ -5,11 +5,12 @@ import rohit from "../assets/Rohits.jpg";
 import { marked } from "marked";
 
 const Chat = () => {
-  const { hide, res, send, setPrompt, prompt, recent, disabled } =
+  const { hide, send, setPrompt, prompt, recent, disabled } =
     useContext(MainContext);
   const [listening, setListening] = useState(false);
   const recognition = new window.webkitSpeechRecognition();
   const scrollTop = useRef(null);
+
 
   useEffect(() => {
     if (scrollTop.current) {
@@ -141,7 +142,7 @@ const Chat = () => {
                   </div>
                 ) : (
                   <div
-                    dangerouslySetInnerHTML={{ __html: marked.parse(res[i]) }}
+                    dangerouslySetInnerHTML={{ __html: marked.parse(item.res) }}
                   ></div>
                 )}
               </div>
