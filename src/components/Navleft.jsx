@@ -33,7 +33,7 @@ const Navleft = () => {
                   className="flex gap-4 py-2 px-4 items-center hover:bg-zinc-700 hover:rounded-full"
                 >
                   <i className="fa fa-comment-o" aria-hidden="true"></i>
-                  <p className={`${item.length > 20 && "truncate"}`}>{item}</p>
+                  <p className={`${item.length > 15 && "truncate"}`}>{item}</p>
                 </div>
               </Tooltip>
             ))}

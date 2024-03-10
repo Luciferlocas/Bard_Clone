@@ -50,7 +50,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="bg-[#131314] flex-1 p-6 flex flex-col items-center">
+    <div className="bg-[#131314] w-full p-6 flex flex-col items-center">
       <div className="flex w-full justify-between">
         <p className="text-[1.5em] bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
           Bard
@@ -75,22 +75,22 @@ const Chat = () => {
               How can I help you today?
             </span>
           </div>
-          <div className="flex gap-3 text-white font-medium text-[1em]">
-            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl max-w-[14em] p-4 cursor-pointer relative">
+          <ScrollShadow className="flex gap-3 text-white font-medium text-[1em]">
+            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[14em] p-4 cursor-pointer relative">
               <p>Help me craft an OOO message based on a few details</p>
               <i
                 className="fa fa-pencil absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
                 aria-hidden="true"
               ></i>
             </div>
-            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl max-w-[14em] p-4 cursor-pointer relative">
+            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[14em] p-4 cursor-pointer relative">
               <p>Help me find YouTube videos to care for a specific plant</p>
               <i
                 className="fa fa-youtube-play absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
                 aria-hidden="true"
               ></i>
             </div>
-            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl max-w-[14em] p-4 cursor-pointer relative">
+            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[14em] p-4 cursor-pointer relative">
               <p>
                 Outline an organized & logical sales pitch for a new product
               </p>
@@ -99,14 +99,14 @@ const Chat = () => {
                 aria-hidden="true"
               ></i>
             </div>
-            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl max-w-[14em] p-4 cursor-pointer relative">
+            <div className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[14em] p-4 cursor-pointer relative">
               <p>Write me a basic HTML code</p>
               <i
                 className="fa fa-code absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
                 aria-hidden="true"
               ></i>
             </div>
-          </div>
+          </ScrollShadow>
         </ScrollShadow>
       ) : (
         <ScrollShadow
@@ -150,7 +150,7 @@ const Chat = () => {
         </ScrollShadow>
       )}
       <div className="mt-auto text-center">
-        <div className="flex rounded-full bg-[#1e1f20] p-4 relative w-[58em]">
+        <div className="flex rounded-full bg-[#1e1f20] p-4 relative lg:w-[58em] max-w-[58em]">
           <textarea
             className="w-[49em] bg-transparent outline-none resize-none absolute top-6 h-6"
             placeholder="Enter a prompt here"
