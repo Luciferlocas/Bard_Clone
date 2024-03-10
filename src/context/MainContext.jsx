@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import runChat from "../Utils/Util";
+import runChat from "../Utils/runChat";
 
 const MainContext = createContext();
 
