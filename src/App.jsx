@@ -4,7 +4,7 @@ import Chat from "./chats/Chat";
 
 const App = () => {
   return (
-    <div className="flex">
+    <div className="flex animate-fade">
       <Navleft />
       <Chat />
     </div>
