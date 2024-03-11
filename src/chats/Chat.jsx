@@ -199,7 +199,7 @@ const Chat = () => {
           </div>
         </ScrollShadow>
       )}
-      <div className="text-center lg:w-[58em] max-w-[52em] ">
+      <div className="text-center lg:w-[58em] max-w-[52em] mt-auto">
         <div
           className="flex rounded-full bg-[#1e1f20] md:p-4 p-2 relative cursor-text"
           onClick={() => {
