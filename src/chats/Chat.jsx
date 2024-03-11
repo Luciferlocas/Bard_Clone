@@ -62,13 +62,13 @@ const Chat = () => {
         />
       </div>
       {!hide && !show && (
-        <ScrollShadow className="h-[70vh] mb-6 grid lg:w-[58em] max-w-[52em]">
+        <ScrollShadow className="h-[70vh] mb-6 grid lg:w-2/3 w-full">
           <div>
-            <span className="md:text-[3.5em] text-[2em] font-semibold bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
+            <span className="md:text-[3.5em] text-[2.5em] font-semibold bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
               Hello, Rohit
             </span>
             <br />
-            <span className="md:text-[3.5em] text-[2em] font-semibold text-[#444746]">
+            <span className="md:text-[3.5em] text-[2.5em] font-semibold text-[#444746]">
               How can I help you today?
             </span>
           </div>
@@ -79,7 +79,7 @@ const Chat = () => {
                   "Briefly summarize this concept: urban planning. Include a brief description of the term and list key aspects of the concept"
                 );
               }}
-              style={{ width: "200px", minWidth: "160px", height: "200px" }}
+              style={{ minWidth: "200px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Briefly summarize this concept: urban planning</p>
@@ -94,7 +94,7 @@ const Chat = () => {
                   "Find some youtube video to help me learn web development"
                 );
               }}
-              style={{ width: "200px", minWidth: "160px", height: "200px" }}
+              style={{ minWidth: "200px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Help me find YouTube videos</p>
@@ -109,7 +109,7 @@ const Chat = () => {
                   "Help me write a thank you note to my colleague for going above and beyond"
                 );
               }}
-              style={{ width: "200px", minWidth: "160px", height: "200px" }}
+              style={{ minWidth: "200px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Write a thank you note to my colleague</p>
@@ -124,7 +124,7 @@ const Chat = () => {
                   "Write a HTML code to understand the basic structure of the language"
                 );
               }}
-              style={{ width: "200px", minWidth: "160px", height: "200px" }}
+              style={{ minWidth: "200px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Write me a basic HTML code</p>
@@ -139,7 +139,7 @@ const Chat = () => {
       {hide && !show && (
         <ScrollShadow
           ref={scrollTop}
-          className="h-[70vh] lg:w-[58em] max-w-[52em] mb-6"
+          className="h-[70vh] lg:w-2/3 w-full mb-6"
         >
           {recent.map((item, i) => (
             <div
@@ -179,7 +179,7 @@ const Chat = () => {
       {show && (
         <ScrollShadow
           ref={scrollTop}
-          className="h-[70vh] lg:w-[58em] max-w-[52em] mb-6"
+          className="h-[70vh] lg:w-2/3 w-full mb-6"
         >
           <div className="flex flex-col gap-4 mt-4 text-lg text-left leading-[2em]">
             <div className="flex gap-4 items-start">
@@ -199,7 +199,7 @@ const Chat = () => {
           </div>
         </ScrollShadow>
       )}
-      <div className="text-center lg:w-[58em] max-w-[52em] mt-auto">
+      <div className="text-center lg:w-2/3 w-full mt-auto">
         <div
           className="flex rounded-full bg-[#1e1f20] md:p-4 p-2 relative cursor-text"
           onClick={() => {
