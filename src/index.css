@@ -17,3 +17,10 @@ pre{
   border-radius: 1em;
   line-height: 1.5em;
 }
+
+@media screen and (max-width: 600px){ 
+  pre{
+    font-size: 0.5em !important;
+    
+  }
+}

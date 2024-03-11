@@ -1,4 +1,4 @@
-import { Tooltip } from "@nextui-org/react";
+import { ScrollShadow, Tooltip } from "@nextui-org/react";
 import React, { useContext, useState, useRef, useEffect } from "react";
 import MainContext from "../context/MainContext";
 import rohit from "../assets/Rohits.jpg";
@@ -50,7 +50,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="bg-[#131314] min-h-screen p-6 flex flex-col items-center w-full relative">
+    <div className="bg-[#131314] min-h-screen p-6 flex flex-col items-center w-full">
       <div className="flex w-full justify-between">
         <p className="text-[1.5em] bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
           Bard
@@ -62,13 +62,13 @@ const Chat = () => {
         />
       </div>
       {!hide && !show && (
-        <div className="h-[36em] grid place-content-center gap-20 max-w-[58em] overflow-scroll">
+        <ScrollShadow className="h-[70vh] mb-6 grid lg:w-[58em] max-w-[52em]">
           <div>
-            <span className="md:text-[4em] text-[2em] font-semibold bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
+            <span className="md:text-[3.5em] text-[2em] font-semibold bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
               Hello, Rohit
             </span>
             <br />
-            <span className="md:text-[4em] text-[2em] font-semibold text-[#444746]">
+            <span className="md:text-[3.5em] text-[2em] font-semibold text-[#444746]">
               How can I help you today?
             </span>
           </div>
@@ -79,7 +79,7 @@ const Chat = () => {
                   "Briefly summarize this concept: urban planning. Include a brief description of the term and list key aspects of the concept"
                 );
               }}
-              style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+              style={{ width: "200px", minWidth: "160px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Briefly summarize this concept: urban planning</p>
@@ -94,7 +94,7 @@ const Chat = () => {
                   "Find some youtube video to help me learn web development"
                 );
               }}
-              style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+              style={{ width: "200px", minWidth: "160px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Help me find YouTube videos</p>
@@ -109,7 +109,7 @@ const Chat = () => {
                   "Help me write a thank you note to my colleague for going above and beyond"
                 );
               }}
-              style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+              style={{ width: "200px", minWidth: "160px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Write a thank you note to my colleague</p>
@@ -124,7 +124,7 @@ const Chat = () => {
                   "Write a HTML code to understand the basic structure of the language"
                 );
               }}
-              style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+              style={{ width: "200px", minWidth: "160px", height: "200px" }}
               className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
             >
               <p>Write me a basic HTML code</p>
@@ -134,14 +134,17 @@ const Chat = () => {
               ></i>
             </div>
           </div>
-        </div>
+        </ScrollShadow>
       )}
       {hide && !show && (
-        <div ref={scrollTop} className="h-[36em] w-[58em] overflow-scroll">
+        <ScrollShadow
+          ref={scrollTop}
+          className="h-[70vh] lg:w-[58em] max-w-[52em] mb-6"
+        >
           {recent.map((item, i) => (
             <div
               key={i}
-              className="flex flex-col gap-4 mt-4 pb-10 text-lg text-left leading-[2em]"
+              className="flex flex-col gap-4 mt-4 text-lg text-left leading-[2em]"
             >
               <div className="flex gap-4 items-start">
                 <img
@@ -159,9 +162,9 @@ const Chat = () => {
                 />
                 {item.loading ? (
                   <div className="w-full flex flex-col gap-[1em]">
-                    <hr className="h-[1em] w-[48em] border-none rounded-md animate-gemini bg-gradient-to-r from-blue-900 from-15% via-red-400 to-blue-900" />
-                    <hr className="h-[1em] w-[45em] border-none rounded-md animate-gemini bg-gradient-to-r from-blue-900 from-10% via-red-400 to-blue-900" />
-                    <hr className="h-[1em] w-[40em] border-none rounded-md animate-gemini bg-gradient-to-r from-blue-900 via-red-400 to-blue-900" />
+                    <hr className="h-[1em] w-full border-none rounded-md animate-gemini bg-gradient-to-r from-blue-900 from-15% via-red-400 to-blue-900" />
+                    <hr className="h-[1em] w-3/4 border-none rounded-md animate-gemini bg-gradient-to-r from-blue-900 from-10% via-red-400 to-blue-900" />
+                    <hr className="h-[1em] w-1/2 border-none rounded-md animate-gemini bg-gradient-to-r from-blue-900 via-red-400 to-blue-900" />
                   </div>
                 ) : (
                   <div
@@ -171,11 +174,14 @@ const Chat = () => {
               </div>
             </div>
           ))}
-        </div>
+        </ScrollShadow>
       )}
       {show && (
-        <div ref={scrollTop} className="h-[36em] w-[58em] overflow-scroll">
-          <div className="flex flex-col gap-4 mt-4 pb-10 text-lg text-left leading-[2em]">
+        <ScrollShadow
+          ref={scrollTop}
+          className="h-[70vh] lg:w-[58em] max-w-[52em] mb-6"
+        >
+          <div className="flex flex-col gap-4 mt-4 text-lg text-left leading-[2em]">
             <div className="flex gap-4 items-start">
               <img
                 className="rounded-full object-contain w-10"
@@ -191,11 +197,11 @@ const Chat = () => {
               ></div>
             </div>
           </div>
-        </div>
+        </ScrollShadow>
       )}
-      <div className="mt-auto text-center">
+      <div className="text-center lg:w-[58em] max-w-[52em] ">
         <div
-          className="flex rounded-full bg-[#1e1f20] md:p-4 p-2 relative lg:w-[58em] max-w-[58em] cursor-text"
+          className="flex rounded-full bg-[#1e1f20] md:p-4 p-2 relative cursor-text"
           onClick={() => {
             document.getElementById("textarea").focus();
           }}

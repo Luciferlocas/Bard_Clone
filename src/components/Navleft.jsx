@@ -26,7 +26,7 @@ const Navleft = () => {
           {open ? <p>New Chat</p> : null}
         </div>
         {open ? (
-          <ScrollShadow className="flex flex-col gap-2 max-h-[20em]">
+          <ScrollShadow className="flex flex-col gap-2 max-h-[16em]">
             <p className="pl-4">Recent</p>
             {history.map((item, i) => (
               <Tooltip

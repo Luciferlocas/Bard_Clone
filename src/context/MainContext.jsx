@@ -49,12 +49,34 @@ export const MainContextProvider = ({ children }) => {
       );
     } catch (error) {
       console.log(error);
+      setRecent((prevRecent) =>
+        prevRecent.map((item) =>
+          item.prompt === prompt
+            ? {
+                ...item,
+                loading: false,
+                res: "Error generating response, we are still working to improve it.",
+              }
+            : item
+        )
+      );
+      setHistory((prevHistory) =>
+        prevHistory.map((item) =>
+          item.prompt === prompt
+            ? {
+                ...item,
+                res: "Error generating response, we are still working to improve it.",
+              }
+            : item
+        )
+      );
     } finally {
       setDisabled(false);
     }
   };
 
   const newChat = () => {
+    setRecent([])
     setHide(false);
     setShow(false);
   };
