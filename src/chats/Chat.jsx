@@ -208,7 +208,7 @@ const Chat = () => {
         >
           <textarea
             id="textarea"
-            className="bg-transparent outline-none resize-none absolute md:top-6 top-4 h-6 w-3/4"
+            className="bg-transparent outline-none resize-none absolute md:top-6 top-4 h-6 sm:w-3/4 w-1/2"
             placeholder="Enter a prompt here"
             value={prompt}
             onChange={(e) => {
