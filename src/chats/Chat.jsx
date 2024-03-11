@@ -50,7 +50,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="bg-[#131314] min-h-screen p-6 flex flex-col items-center w-full">
+    <div className="bg-[#131314] h-full p-6 flex flex-col items-center w-full">
       <div className="flex w-full justify-between">
         <p className="text-[1.5em] bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
           Bard
