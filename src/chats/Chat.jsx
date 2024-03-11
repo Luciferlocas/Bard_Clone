@@ -62,10 +62,7 @@ const Chat = () => {
         />
       </div>
       {!hide && !show && (
-        <div
-          hideScrollBar
-          className="h-[36em] grid place-content-center gap-20 max-w-[58em] overflow-scroll"
-        >
+        <div className="h-[36em] grid place-content-center gap-20 max-w-[58em] overflow-scroll">
           <div>
             <span className="md:text-[4em] text-[2em] font-semibold bg-gradient-to-r from-blue-600 to-red-400 bg-clip-text text-transparent">
               Hello, Rohit
@@ -75,57 +72,68 @@ const Chat = () => {
               How can I help you today?
             </span>
           </div>
-          <div className="flex gap-3 min-w-[58em] text-white font-medium text-[1em] overflow-scroll">
-            <div
-              onClick={async () => {
-                setPrompt(
-                  "Briefly summarize this concept: urban planning. Include a brief description of the term and list key aspects of the concept"
-                );
-              }}
-              className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[224px] p-4 cursor-pointer relative"
-            >
-              <p>Briefly summarize this concept: urban planning</p>
-              <i
-                className="fa fa-lightbulb-o absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div onClick={() => {
-              setPrompt("Find some youtube video to help me learn web development")
-            }} className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[224px] p-4 cursor-pointer relative">
-              <p>Help me find YouTube videos</p>
-              <i
-                className="fa fa-youtube-play absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div
-              onClick={() => {
-                setPrompt(
-                  "Help me write a thank you note to my colleague for going above and beyond"
-                );
-              }}
-              className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[224px] p-4 cursor-pointer relative"
-            >
-              <p>Write a thank you note to my colleague</p>
-              <i
-                className="fa fa-pencil absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
-                aria-hidden="true"
-              ></i>
-            </div>
-            <div
-              onClick={() => {
-                setPrompt(
-                  "Write a HTML code to understand the basic structure of the language"
-                );
-              }}
-              className="bg-[#1e1f20] hover:bg-[#262627] aspect-square rounded-2xl w-[224px] p-4 cursor-pointer relative"
-            >
-              <p>Write me a basic HTML code</p>
-              <i
-                className="fa fa-code absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
-                aria-hidden="true"
-              ></i>
+          <div className="overflow-x-auto">
+            <div className="flex gap-3 text-white font-medium text-[1em]">
+              <div
+                onClick={async () => {
+                  setPrompt(
+                    "Briefly summarize this concept: urban planning. Include a brief description of the term and list key aspects of the concept"
+                  );
+                }}
+                style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+                className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
+              >
+                <p>Briefly summarize this concept: urban planning</p>
+                <i
+                  className="fa fa-lightbulb-o absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div
+                onClick={() => {
+                  setPrompt(
+                    "Find some youtube video to help me learn web development"
+                  );
+                }}
+                style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+                className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
+              >
+                <p>Help me find YouTube videos</p>
+                <i
+                  className="fa fa-youtube-play absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div
+                onClick={() => {
+                  setPrompt(
+                    "Help me write a thank you note to my colleague for going above and beyond"
+                  );
+                }}
+                style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+                className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
+              >
+                <p>Write a thank you note to my colleague</p>
+                <i
+                  className="fa fa-pencil absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div
+                onClick={() => {
+                  setPrompt(
+                    "Write a HTML code to understand the basic structure of the language"
+                  );
+                }}
+                style={{ width: "220px", minWidth: "160px", aspectRatio: "1" }}
+                className="bg-[#1e1f20] hover:bg-[#262627] rounded-2xl p-4 cursor-pointer relative"
+              >
+                <p>Write me a basic HTML code</p>
+                <i
+                  className="fa fa-code absolute bottom-3 right-3 bg-[#131314] p-4 rounded-full"
+                  aria-hidden="true"
+                ></i>
+              </div>
             </div>
           </div>
         </div>
@@ -172,11 +180,7 @@ const Chat = () => {
         </div>
       )}
       {show && (
-        <div
-          ref={scrollTop}
-          hideScrollBar
-          className="h-[36em] w-[58em] overflow-scroll"
-        >
+        <div ref={scrollTop} className="h-[36em] w-[58em] overflow-scroll">
           <div className="flex flex-col gap-4 mt-4 pb-10 text-lg text-left leading-[2em]">
             <div className="flex gap-4 items-start">
               <img
@@ -196,9 +200,15 @@ const Chat = () => {
         </div>
       )}
       <div className="mt-auto text-center">
-        <div className="flex rounded-full bg-[#1e1f20] p-4 relative lg:w-[58em] max-w-[58em]">
+        <div
+          className="flex rounded-full bg-[#1e1f20] p-4 relative lg:w-[58em] max-w-[58em] cursor-text"
+          onClick={() => {
+            document.getElementById("textarea").focus();
+          }}
+        >
           <textarea
-            className="w-[49em] bg-transparent outline-none resize-none absolute top-6 h-6"
+            id="textarea"
+            className="bg-transparent outline-none resize-none absolute top-6 h-6"
             placeholder="Enter a prompt here"
             value={prompt}
             onChange={(e) => {
@@ -215,7 +225,7 @@ const Chat = () => {
                   ></i>
                 </label>
                 <input
-                  className="opacity-0 absolute -z-10"
+                  className="opacity-0 absolute -z-10 w-4"
                   type="file"
                   id="img"
                   name="img"
