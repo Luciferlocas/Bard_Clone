@@ -12,10 +12,12 @@
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
     "@nextui-org/react": "^2.2.10",
+    "chart.js": "^4.4.2",
     "framer-motion": "^11.0.8",
     "marked": "^12.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
