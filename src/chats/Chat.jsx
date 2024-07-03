@@ -137,10 +137,7 @@ const Chat = () => {
         </ScrollShadow>
       )}
       {hide && !show && (
-        <ScrollShadow
-          ref={scrollTop}
-          className="h-[70vh] lg:w-2/3 w-full mb-6"
-        >
+        <ScrollShadow ref={scrollTop} className="h-[70vh] lg:w-2/3 w-full mb-6">
           {recent.map((item, i) => (
             <div
               key={i}
@@ -167,9 +164,11 @@ const Chat = () => {
                     <hr className="h-[1em] w-1/2 border-none rounded-md animate-gemini bg-gradient-to-r from-blue-900 via-red-400 to-blue-900" />
                   </div>
                 ) : (
-                  <div
-                    dangerouslySetInnerHTML={{ __html: marked.parse(item.res) }}
-                  ></div>
+                  <div>
+                    {chat.res +
+                      " " +
+                      "The response you're getting is because I've removed the API key as it was against the policy."}
+                  </div>
                 )}
               </div>
             </div>
@@ -177,10 +176,7 @@ const Chat = () => {
         </ScrollShadow>
       )}
       {show && (
-        <ScrollShadow
-          ref={scrollTop}
-          className="h-[70vh] lg:w-2/3 w-full mb-6"
-        >
+        <ScrollShadow ref={scrollTop} className="h-[70vh] lg:w-2/3 w-full mb-6">
           <div className="flex flex-col gap-4 mt-4 text-lg text-left leading-[2em]">
             <div className="flex gap-4 items-start">
               <img
@@ -192,9 +188,11 @@ const Chat = () => {
             </div>
             <div className="flex gap-6 items-start">
               <img src="./Icon.ico" alt="icon" />
-              <div
-                dangerouslySetInnerHTML={{ __html: marked.parse(chat.res) }}
-              ></div>
+              <div>
+                {chat.res +
+                  " " +
+                  "The response you're getting is because I've removed the API key as it was against the policy."}
+              </div>
             </div>
           </div>
         </ScrollShadow>
